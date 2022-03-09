@@ -24,7 +24,7 @@ public class Main {
 		}
 		boolean check = false;
 		for(int i =0; i<tmp_s.length(); i++) {
-			if(tmp_s.charAt(i)=='<') {
+			if(tmp_s.charAt(i)=='<') { //<가 열리면 check를 true처리
 				if(list.isEmpty() != true) {
 					for(int j = list.size()-1; j>=0; j--) {
 						System.out.print(list.get(j).toString());
@@ -33,20 +33,20 @@ public class Main {
 				}
 				check = true;
 				System.out.print(tmp_s.charAt(i));
-			}else if(tmp_s.charAt(i)=='>') {
+			}else if(tmp_s.charAt(i)=='>') { //>가 닫히면 check를 false처리
 				check = false;
 				System.out.print(tmp_s.charAt(i));
 			}else {
-				if(check == true) {
+				if(check == true) { //check가 true이면 있는 그대로 출력
 					System.out.print(tmp_s.charAt(i));
 				}else {
-					if(tmp_s.charAt(i) == ' ') {
+					if(tmp_s.charAt(i) == ' ') { //공백을 만나면 시작하는 공백을 만나기 전의 문자들을 거꾸로 출력
 						for(int j = list.size()-1; j>=0; j--) {
 							System.out.printf(list.get(j).toString());
 							list.remove(j);
 						}
 						System.out.print(" ");
-					}else {
+					}else { // 나머지 문자 처리
 						list.add(tmp_s.charAt(i));
 						if(i==tmp_s.length()-1) {
 							for(int j = list.size()-1; j>=0; j--) {
